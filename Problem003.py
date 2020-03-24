@@ -14,21 +14,27 @@ Brandyn Gilbert
 # # What is the largest prime factor of the number 600851475143 ?
 # =============================================================================
 
+import math
 
 def main():
-    factors = []
-    prime_factors = []
-    number = 13195
-    for i in range(1, number+1):
-        if number % i == 0:
-            factors.append(i)
+    n = 600851475143
+    # check for even numbers
+    while n % 2 == 0:
+        print('2')
+        n = n / 2
 
-
-    print(factors)
-    for i in factors:
-        if i != 1:
+    # n must be odd at this point
+    # so a skip of 2 ( i = i + 2) can be used
+    for i in range(3,int(math.sqrt(n))+1,2):
+        # while i divides n , print i ad divide n
+        while n % i== 0:
             print(i)
-            for j in range(2, i-1):
+            n = n / i
+
+    # Condition if n is a prime
+    # number greater than 2
+    if n > 2:
+        print(n)
 
 
 
